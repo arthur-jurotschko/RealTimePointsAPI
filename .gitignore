@@ -1,0 +1,20 @@
+# Arquivos e pastas do Visual Studio
+.vs/
+*.vscode
+*.user
+*.suo
+*.ipch
+*.cache
+*.idea/
+*.log
+
+# Ignorar binários do projeto
+bin/
+obj/
+Debug/
+Release/
+
+# Arquivos temporários
+*.tmp
+*.lock
+

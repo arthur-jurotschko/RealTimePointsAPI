@@ -1,0 +1,31 @@
+Utilize o arquivos CREATE_TABLES.sql para criar as tabelas.
+
+Configurar o ID e PASSWORD da instancia do SQL no arquivo appsettings.json para Inicializar o Banco de Dados:
+
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Database=SenexDB;User Id=sa;Password=YourPasswordHere;Encrypt=False;"
+  }
+}
+
+Execute o seguinte SQL no seu SQL Server para criar as tabelas necessárias:
+
+Tabela PONTOS:
+
+CREATE TABLE PONTOS (
+    id_pessoa_que_consumiu INT PRIMARY KEY,
+    saldo_de_pontos INT NOT NULL DEFAULT 0,
+    data_atualizacao DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+---------------------------------------------------------------------------
+
+Tabela CONSUMO:
+
+CREATE TABLE CONSUMO (
+    id_transacao INT IDENTITY PRIMARY KEY,
+    id_pessoa_que_consumiu INT NOT NULL,
+    valor_total DECIMAL(10, 2) NOT NULL,
+    pontos_obtidos_na_transacao INT NOT NULL,
+    ProcessadoTempoReal BIT NOT NULL DEFAULT 0
+);

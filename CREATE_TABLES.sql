@@ -1,12 +1,30 @@
+-- JSON Para testar o request
 
+--{
+--  "transactionId": 1,
+--  "customerId": 12345,
+--  "amount": 150.00,
+--  "pointsEarned": 15,
+--  "processedRealTime": true
+--}
+
+
+-- Criar o Banco de Dados
+CREATE DATABASE SenexDB;
+GO
+
+-- Usar o Banco de Dados
+USE SenexDB;
+GO
+
+-- Criar a Tabela PONTOS
 CREATE TABLE PONTOS (
     id_pessoa_que_consumiu INT PRIMARY KEY,
     saldo_de_pontos INT NOT NULL DEFAULT 0,
     data_atualizacao DATETIME NOT NULL DEFAULT GETDATE()
 );
 
----------------------------------------------------------------------------
-
+-- Criar a Tabela CONSUMO
 CREATE TABLE CONSUMO (
     id_transacao INT IDENTITY PRIMARY KEY,
     id_pessoa_que_consumiu INT NOT NULL,
